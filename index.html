@@ -258,6 +258,63 @@
     box-shadow: none !important;
 }
 
+
+/* WBS Theme */
+.wbs-section .wbs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.wbs-section .wbs-table thead th {
+  text-align: left;
+  background: #eaf3ec;
+  color: #1f5133;
+  padding: 10px;
+  border-bottom: 1px solid #dbe5de;
+}
+.wbs-section .wbs-table tbody td {
+  padding: 10px;
+  border-bottom: 1px solid #f0f2f4;
+  vertical-align: top;
+}
+.wbs-section .wbs-table tbody tr:nth-child(odd) td {
+  background: #fafbfb;
+}
+.wbs-section h2, .wbs-section h3 {
+  color: #1f5133;
+}
+.wbs-section .sheet-block {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 16px 0;
+  background: #fff;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
+}
+
+
+@media (max-width: 640px){
+  .deliverables-grid{
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
+/* WBS level-based row styles */
+.wbs-section .wbs-table tbody tr[class^="lvl-"] td { border-left: 4px solid transparent; }
+.wbs-section .wbs-table tbody tr.lvl-deliverable td { background: #f5fbf7; border-left-color: #2d6a4f; }
+.wbs-section .wbs-table tbody tr.lvl-work-package td,
+.wbs-section .wbs-table tbody tr.lvl-workpackage td { background: #fffbea; border-left-color: #ca8a04; }
+.wbs-section .wbs-table tbody tr.lvl-task td { background: #ffffff; border-left-color: transparent; }
+.wbs-section .wbs-table tbody tr.lvl-milestone td { background: #f8f5ff; border-left-color: #7c3aed; }
+/* Subtle hover to help scanning */
+.wbs-section .wbs-table tbody tr:hover td { filter: brightness(0.98); }
+              
+
 </style>
 </head>
 <body>
@@ -362,6 +419,94 @@
 </div>
 </div>
 </div>
+
+
+<section id="deliverables">
+  <h2>📦 Deliverables</h2>
+  <div class="deliverables-grid">
+    <article class="deliverable-card">
+      <h4>Deliverable 1 — Data &amp; Base Model</h4>
+      <p><strong>Definition of Done:</strong> Relevant data is obtained on local server.</p>
+      <p><strong>SMART Description:</strong> Obtain base AI and dataset for training the AI to execute project.</p>
+      <p><strong>Type:</strong> Tangible</p>
+    </article>
+    <article class="deliverable-card">
+      <h4>Deliverable 2 — Working Face Recognition</h4>
+      <p><strong>Definition of Done:</strong> Model successfully completes facial recognition.</p>
+      <p><strong>SMART Description:</strong> Model uses training data to achieve a working version of the project final product.</p>
+      <p><strong>Type:</strong> Intangible</p>
+    </article>
+    <article class="deliverable-card">
+      <h4>Deliverable 3 — Emotion Accuracy</h4>
+      <p><strong>Definition of Done:</strong> Model can accurately determine emotion of set number of test cases.</p>
+      <p><strong>SMART Description:</strong> Iterative process to ensure the product does not produce incorrect outcomes.</p>
+      <p><strong>Type:</strong> Intangible</p>
+    </article>
+    <article class="deliverable-card">
+      <h4>Deliverable 4 — Final Presentation</h4>
+      <p><strong>Definition of Done:</strong> Video file or Webpage that can be accessed on a school computer during class.</p>
+      <p><strong>SMART Description:</strong> Video or slideshow to present product to the class at the end of the semester.</p>
+      <p><strong>Type:</strong> Tangible</p>
+    </article>
+  </div>
+</section>
+<style>
+/* Compact Deliverables cards */
+.deliverables-grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap:12px;
+  margin-top:8px;
+}
+.deliverable-card{
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+  padding:12px;
+  background:#fff;
+}
+.deliverable-card h4{
+  margin:0 0 6px 0;
+  font-size:16px;
+  color:#1f5133;
+}
+.deliverable-card p{
+  margin:4px 0;
+  font-size:13px;
+}
+.deliverable-card p strong{
+  color:#274e37;
+}
+</style>
+
+<section id="wbs" class="wbs-section">
+<h2>🧱 Work Breakdown Structure (WBS)</h2>
+<p>The WBS organizes the project into deliverables, work packages, and tasks. Indentation reflects hierarchy derived from the WBS ID.</p>
+<div class='sheet-block'><h3>Deliverable 1</h3>
+    <table class="wbs-table">
+	  <thead><tr><th>WBS ID</th><th>Level</th><th>Task/Work Package Name</th><th>Duration</th><th>Dependencies (WBS ID &amp; Name)</th><th>Parallel</th></tr></thead>
+      <tbody><tr class="lvl-deliverable"><td>1</td><td>Deliverable</td><td>Dataset Preparation / Project Planning</td><td>5.5 days</td><td>--</td><td></td></tr><tr class="lvl-work-package"><td>1.1</td><td>Work Package</td><td>Research</td><td>3 days</td><td>--</td><td></td></tr><tr class="lvl-task"><td>1.1.1</td><td>Task</td><td>Research Different pretrained AI Models</td><td>1 day</td><td>--</td><td>1.1.3</td></tr><tr class="lvl-task"><td>1.1.2</td><td>Task</td><td>Research Facial Expression Recognition</td><td>1 day</td><td>--</td><td></td></tr><tr class="lvl-task"><td>1.1.3</td><td>Task</td><td>Research Evaluation Metrics</td><td>1 day</td><td>1.1.1 - Research Different pretrained AI Models</td><td>1.1.1</td></tr><tr class="lvl-task"><td>1.1.4</td><td>Task</td><td>Research Model Installation</td><td>1 day</td><td>1.1.1 - Research Different pretrained AI Models</td><td></td></tr><tr class="lvl-work-package"><td>1.2</td><td>Work Package</td><td>Training Data</td><td>2.5 days</td><td>1.1.2 - Research Facial Expression Recognition</td><td></td></tr><tr class="lvl-task"><td>1.2.1</td><td>Task</td><td>Research available datasets</td><td>1 day</td><td>--</td><td>1.2.2,1.2.3</td></tr><tr class="lvl-task"><td>1.2.2</td><td>Task</td><td>Evaluate Criteria for Data Quality</td><td>1 day</td><td>--</td><td>1.2.1,1.2.3</td></tr><tr class="lvl-task"><td>1.2.3</td><td>Task</td><td>Identfy Suitable Sources of Training Data</td><td>1 day</td><td>1.2.1 - Research Available Datasets</td><td>1.2.1,1.2.2</td></tr><tr class="lvl-task"><td>1.2.4</td><td>Task</td><td>Obtain Datset</td><td>.5 days</td><td>1.2.3 - Identify suitable sources of training Data</td><td></td></tr><tr class="lvl-task"><td>1.2.5</td><td>Task</td><td>Split dataset into train/validation/test groups</td><td>.5 days</td><td>1.2.4 - Obtain dataset</td><td></td></tr><tr class="lvl-task"><td>1.2.6</td><td>Task</td><td>Apply augmentations (flip, brightness/contrast, etc.) to reuse dataset</td><td>.5 days</td><td>1.2.4 - Obtain dataset</td><td></td></tr></tbody>
+    </table>
+    </div>
+<div class='sheet-block'><h3>Deliverable 2</h3>
+    <table class="wbs-table">
+      <thead><tr><th>WBS ID</th><th>Level</th><th>Task/Work Package Name</th><th>Duration</th><th>Dependencies (WBS ID &amp; Name)</th><th>Parallel</th></tr></thead>
+      <tbody><tr class="lvl-deliverable"><td>2</td><td>Deliverable</td><td>Model Development</td><td>9 days</td><td>1 - Dataset Preparation / Project Planning</td><td></td></tr><tr class="lvl-work-package"><td>2.1</td><td>Work Package</td><td>Baseline Model</td><td>3.5 days</td><td>1.1.1 -Research Different pretrained AI Models</td><td></td></tr><tr class="lvl-task"><td>2.1.1</td><td>Task</td><td>Load pre-trained model</td><td>.5 days</td><td>--</td><td></td></tr><tr class="lvl-task"><td>2.1.2</td><td>Task</td><td>Replace classifier hear with emotion classes</td><td>.5 days</td><td>2.1.1 - Load pre-trained model</td><td></td></tr><tr class="lvl-task"><td>2.1.3</td><td>Task</td><td>Define loss function and optimizer</td><td>.5 days</td><td>2.1.1 - Load pre-trained model</td><td></td></tr><tr class="lvl-task"><td>2.1.4</td><td>Task</td><td>Train baseline model</td><td>2 days</td><td>2.1.3 - Define loss function and optimizer</td><td></td></tr><tr class="lvl-task"><td>2.1.5</td><td>Task</td><td>Evaluate baseline on validation set</td><td>1 day</td><td>1.2.1 - Design database schema</td><td></td></tr><tr class="lvl-work-package"><td>2.2</td><td>Work Package</td><td>Fine-Tune model</td><td>5.5 days</td><td>2.1 - Baseline Model</td><td></td></tr><tr class="lvl-task"><td>2.2.1</td><td>Task</td><td>Unfreeze backbone layers</td><td>.5 days</td><td>--</td><td></td></tr><tr class="lvl-task"><td>2.2.2</td><td>Task</td><td>Apply class balancing (weighted loss, oversampling</td><td>1 day</td><td>--</td><td>2.2.3</td></tr><tr class="lvl-task"><td>2.2.3</td><td>Task</td><td>Tune hyperparameters (learning size, batch size)</td><td>2 days</td><td>--</td><td>2.2.2</td></tr><tr class="lvl-task"><td>2.2.4</td><td>Task</td><td>Retrain with augmentations</td><td>2 days</td><td>1.2.6 - Apply augmentations (flip, brightness/contrast, etc.) to reuse dataset</td><td></td></tr><tr class="lvl-task"><td>2.2.5</td><td>Task</td><td>Save and document improved model</td><td>1 day</td><td>2.2.4 - Retrain with augmentations</td><td></td></tr></tbody>
+    </table>
+    </div>
+<div class='sheet-block'><h3>Deliverable 3</h3>
+    <table class="wbs-table">
+      <thead><tr><th>WBS ID</th><th>Level</th><th>Task/Work Package Name</th><th>Duration</th><th>Dependencies (WBS ID &amp; Name)</th><th>Parallel</th></tr></thead>
+      <tbody><tr class="lvl-deliverable"><td>3</td><td>Deliverable</td><td>Evaluation and Analysis</td><td>9.5 days</td><td>2 - Model Development</td><td></td></tr><tr class="lvl-work-package"><td>3.1</td><td>Work Package</td><td>Model Evaluation</td><td>4 days</td><td>2.2 - Fine-Tune model</td><td></td></tr><tr class="lvl-task"><td>3.1.1</td><td>Task</td><td>Test model on test dataset</td><td>1 day</td><td>1.2.5 - Split dataset into train/validation/test groups</td><td></td></tr><tr class="lvl-task"><td>3.1.2</td><td>Task</td><td>Calculate precision, recall, F1 per class</td><td>1 day</td><td>3.1.1 -Test model on test dataset</td><td></td></tr><tr class="lvl-task"><td>3.1.3</td><td>Task</td><td>Generate confusion matrix</td><td>.5 days</td><td>3.1.1 -Test model on test dataset</td><td></td></tr><tr class="lvl-task"><td>3.1.4</td><td>Task</td><td>Perform error anaylsis on misclassified images</td><td>1.5 days</td><td>3.1.1 -Test model on test dataset</td><td></td></tr><tr class="lvl-work-package"><td>3.2</td><td>Work Package</td><td>Robustness and Fairness</td><td>5.5 days</td><td>2.1 - Baseline Model</td><td></td></tr><tr class="lvl-task"><td>3.2.1</td><td>Task</td><td>Test robustness (occlusions, lighting)</td><td>1.5 days</td><td>2.2.4 - Retrain with augmentations</td><td>3.2.2</td></tr><tr class="lvl-task"><td>3.2.2</td><td>Task</td><td>Test under lighting/contrast variations</td><td>1 day</td><td>2.2.4 - Retrain with augmentations</td><td>3.2.1</td></tr><tr class="lvl-task"><td>3.2.3</td><td>Task</td><td>Evaluate across demographics</td><td>1 day</td><td>3.2.1 - Test robustness (occlusions, lighting)</td><td></td></tr><tr class="lvl-task"><td>3.2.4</td><td>Task</td><td>Compare robustness performance to clean test results</td><td>.5 days</td><td>3.2.1 - Test robustness (occlusions, lighting)</td><td></td></tr><tr class="lvl-task"><td>3.2.5</td><td>Task</td><td>Analyze which expressions are most sensitive to conditions</td><td>1 day</td><td>3.2.1 - Test robustness (occlusions, lighting)</td><td></td></tr><tr class="lvl-task"><td>3.2.6</td><td>Task</td><td>Check confidence scores and uncertainty in predictions</td><td>1 day</td><td>2.2.4 - Retrain with augmentations</td><td></td></tr></tbody>
+    </table>
+    </div>
+<div class='sheet-block'><h3>Deliverable 4</h3>
+    <table class="wbs-table">
+      <thead><tr><th>WBS ID</th><th>Level</th><th>Task/Work Package Name</th><th>Duration</th><th>Dependencies (WBS ID &amp; Name)</th><th>Parallel</th></tr></thead>
+      <tbody><tr class="lvl-deliverable"><td>4</td><td>Deliverable</td><td>Presentation</td><td>6.5 days</td><td>3 - Evaluation and Analysis</td><td></td></tr><tr class="lvl-work-package"><td>4.1</td><td>Work Package</td><td>Documentation</td><td>3 days</td><td>3.2 - Robustness and Fairness</td><td></td></tr><tr class="lvl-task"><td>4.1.1</td><td>Task</td><td>Create webpage base for presentation</td><td>1 day</td><td></td><td></td></tr><tr class="lvl-task"><td>4.1.2</td><td>Task</td><td>Add sections describing dataset and preprocessing</td><td>1 day</td><td>4.1.1 - Create webpage base for presentation</td><td>4.1.3</td></tr><tr class="lvl-task"><td>4.1.3</td><td>Task</td><td>Add a section summarizing model architecture and training process</td><td>1 day</td><td>4.1.1 - Create webpage base for presentation</td><td>4.1.2</td></tr><tr class="lvl-task"><td>4.1.4</td><td>Task</td><td>Add a section for results (metrics, confusion matrix, etc.)</td><td>1 day</td><td>4.1.1 - Create webpage base for presentation</td><td>4.1.5</td></tr><tr class="lvl-task"><td>4.1.5</td><td>Task</td><td>Add a section for project roadmap</td><td>1 day</td><td>4.1.1 - Create webpage base for presentation</td><td>4.1.4</td></tr><tr class="lvl-work-package"><td>4.2</td><td>Work Package</td><td>In -class Presentation</td><td>3.5 days</td><td>4.1 - Documentation</td><td></td></tr><tr class="lvl-task"><td>4.2.1</td><td>Task</td><td>Host webpage on Github</td><td>.5 days</td><td>4.1.1 - Create webpage base for presentation</td><td></td></tr><tr class="lvl-task"><td>4.2.2</td><td>Task</td><td>Prepare a live walkthrough for class presentation</td><td>1.5 days</td><td>4.1.1 - Create webpage base for presentation</td><td>4.2.3</td></tr><tr class="lvl-task"><td>4.2.3</td><td>Task</td><td>Add talking points to guide presentation</td><td>.5 days</td><td>4.2.2 - Prepare a live walkthrough for class presentation</td><td>4.2.2</td></tr><tr class="lvl-task"><td>4.2.4</td><td>Task</td><td>Practice presentation</td><td>1 day</td><td>4.2.2 - Prepare a live walkthrough for class presentation</td><td></td></tr><tr class="lvl-task"><td>4.2.5</td><td>Task</td><td>Present end of semester project to class</td><td>.5 days</td><td>4.2.2 - Prepare a live walkthrough for class presentation</td><td></td></tr></tbody>
+    </table>
+    </div>
+</section>
+
 <!-- Section 5: Stakeholder Register -->
 <div class="section">
 <div class="section-header">
