@@ -1053,7 +1053,35 @@
 <h1>Emotion Recognition AI</h1>
 <p>Build an AI model for recognizing facial expressions and determining emotional responses. This model will take webcam data and, in real time, analyze the emotion of a person captured by the camera. I chose this AI-focused project because I haven't built an AI model before, and I believe it's a crucial skill for the future.</p>
 </div>
-<div class="section" id="executive-summary">
+<div class="section" id="status-reports">
+<div class="section-header" onclick="toggleSection(this)">
+<h2>📈 Status Reports</h2>
+<span class="chevron">▼</span>
+</div>
+<div class="section-content">
+<style>
+      .health-badge { font-weight:700; padding:4px 10px; border-radius:10px; display:inline-block; }
+      .health-green { background:#d4edda; color:#155724; }
+      .health-yellow { background:#fff3cd; color:#856404; }
+      .health-red { background:#f8d7da; color:#721c24; }
+    </style>
+<table class="stakeholder-table">
+<thead>
+<tr>
+
+<th>Date Range</th>
+<th>Project Health</th><th>Executive Summary</th>
+<th>Accomplishments</th>
+<th>Plan for Next Week</th>
+<th>Upcoming Milestones</th>
+<th>Issues &amp; Risks / Mitigations</th>
+<th>Changes Since Last Report</th>
+</tr>
+</thead>
+<tbody><tr><td>Week 8: Oct. 8 - Oct. 14.2025</td><td><span class="health-badge health-green">🟢 ON TRACK</span></td><td>Dataset was obtained from Kaggle.com. Data was separated into training and testing groups, subdivided by the 7 emotions the AI will recognize: Angry, Disgust, Fear, Happy, Neutral, Sad, and Surprise.</td><td><div>• Obtained dataset</div><div>• Separated dataset into training/testing groups</div><div>• Loaded pre-trained model onto local machine</div></td><td><div>• Load training dataset into the model</div><div>• Train model to identify emotions</div><div>• Test accuracy of model</div></td><td><div>• Baseline Model — <em>10/20/2025</em> <strong>(ON TRACK)</strong></div><div>• Fine-Tune Model — <em>10/27/2025</em> <strong>(ON TRACK)</strong></div><div>• Evaluate Robustness — <em>10/27/2025</em> <strong>(ON TRACK)</strong></div></td><td>—</td><td>Change #1: Date: 2025-10-12 Description: Augmentations to training set removed, may be replaced with train the model with another dataset with more augmented features such as lighting. Reason / Impact if not made: Initial dataset does not have augment-able qualities, since all the pictures are in grayscale.</td></tr><tr><td>Week 7: Sep 30 - Oct 7</td><td><span class="health-badge health-green">🟢 ON TRACK</span></td><td>Research on gathering data for the project. Gathering criteria for testing and how to qualify the results of model training iterations. Free datasets are the most likely to be used as the project has no time for personally gathering the data and using a paid dataset is not necessary.</td><td><div>• Researched Evaluation Metrics</div><div>• Researched available datasets</div><div>• Learned about criterion for data quality when it comes to facial recognition</div></td><td><div>• Download and sort dataset</div><div>• Download AI model</div><div>• Configure baseline model</div></td><td><div>• Obtain Dataset — <em>10/6/2025</em> <strong>(ON TRACK)</strong></div><div>• Baseline Model — <em>10/13/2025</em> <strong>(ON TRACK)</strong></div><div>• Fine-Tune Model — <em>10/27/2025</em> <strong>(ON TRACK)</strong></div></td><td>Asana Free Trial Ended LOW — Mitigation: Downgraded to free personal plan</td><td>—</td></tr><tr><td>Week 6 9/22 - 9/26</td><td><span class="health-badge health-green">🟢 ON TRACK</span></td><td>Transitioning into the execute phase of the project. First deliverable is to research and obtain materials for the model. This involves gathering training/testing data and a pre-trained facial recognition model.</td><td><div>• Research Different pretrained AI Models</div><div>• Research Facial Expression Recognition</div><div>• Research Model Installation</div></td><td><div>• Research Evaluation Metrics</div><div>• Research available datasets</div><div>• Evaluate Criteria for Data Quality</div></td><td><div>• Obtain Datset — <em>10/6/2025</em> <strong>(ON TRACK)</strong></div><div>• Baseline Model — <em>10/13/2025</em> <strong>(ON TRACK)</strong></div><div>• Fine-Tune model — <em>10/27/2025</em> <strong>(ON TRACK)</strong></div></td><td>—</td><td>—</td></tr></tbody>
+</table>
+</div>
+</div><div class="section" id="executive-summary">
 <div class="section-header">
 <h2>📋 Executive Summary</h2>
 </div>
@@ -1167,7 +1195,7 @@
 <button class="nav-tab" onclick="scrollToSection('methodology')">🧩 Methodology</button>
 <button class="nav-tab" onclick="scrollToSection('tools')">🛠️ Tools</button>
 <button class="nav-tab" onclick="scrollToSection('stakeholders')">👥 Stakeholders</button>
-</div>
+<button class="nav-tab" onclick="scrollToSection('status-reports')">📈 Status Reports</button></div>
 <div class="section collapsed" id="vision">
 <div class="section-header" onclick="toggleSection(this)">
 <h2>🎯 Vision, Mission &amp; Strategy Alignment</h2>
@@ -1217,13 +1245,7 @@
 <div class="scope-grid">
 <div class="scope-item in-scope">
 <h3>✅ In Scope for Semester Project</h3>
-<ul>
-<li>Determine which AI base model is most appropriate for this project</li>
-<li>Secure training data to teach the model</li>
-<li>Train the model off the training data and have it develop pattern recognition</li>
-<li>Test the model with data not within the training dataset</li>
-<li>Develop a presentation for end of class reporting to the professor</li>
-</ul>
+<ul><li>Determine which AI base model is most appropriate for this project</li><li>Secure training/testing data to teach the model</li><li>Train the model have it develop emotion recognition</li><li>Test the model with data not within the training dataset</li><li>Iterate the training/testing to refine the accuracy of the model</li><li>Develop a presentation for showcasing to industry professionals</li></ul>
 </div>
 <div class="scope-item out-scope">
 <h3>❌ Out of Scope</h3>
@@ -1278,170 +1300,8 @@
 </div>
 </div>
 </div>
-<div class="section collapsed" id="gantt">
-<div class="section-header" onclick="toggleSection(this)">
-<h2>📅 Interactive Gantt Chart</h2>
-<span class="chevron">▼</span>
-</div>
-<div class="section-content">
-<div class="gantt-container">
-<div class="gantt-header">
-<div class="gantt-task-header">Tasks</div>
-<div class="gantt-timeline-header">
-<div class="gantt-day" data-day="1">Sep 23</div>
-<div class="gantt-day" data-day="2">Sep 24</div>
-<div class="gantt-day" data-day="3">Sep 25</div>
-<div class="gantt-day" data-day="4">Sep 26</div>
-<div class="gantt-day" data-day="5">Sep 27</div>
-<div class="gantt-day" data-day="6">Sep 28</div>
-<div class="gantt-day" data-day="7">Sep 29</div>
-<div class="gantt-day" data-day="8">Sep 30</div>
-<div class="gantt-day" data-day="9">Oct 01</div>
-<div class="gantt-day" data-day="10">Oct 02</div>
-<div class="gantt-day" data-day="11">Oct 03</div>
-<div class="gantt-day" data-day="12">Oct 04</div>
-<div class="gantt-day" data-day="13">Oct 05</div>
-<div class="gantt-day" data-day="14">Oct 06</div>
-<div class="gantt-day" data-day="15">Oct 07</div>
-<div class="gantt-day" data-day="16">Oct 08</div>
-<div class="gantt-day" data-day="17">Oct 09</div>
-<div class="gantt-day" data-day="18">Oct 10</div>
-<div class="gantt-day" data-day="19">Oct 11</div>
-<div class="gantt-day" data-day="20">Oct 12</div>
-<div class="gantt-day" data-day="21">Oct 13</div>
-<div class="gantt-day" data-day="22">Oct 14</div>
-<div class="gantt-day" data-day="23">Oct 15</div>
-<div class="gantt-day" data-day="24">Oct 16</div>
-<div class="gantt-day" data-day="25">Oct 17</div>
-<div class="gantt-day" data-day="26">Oct 18</div>
-<div class="gantt-day" data-day="27">Oct 19</div>
-<div class="gantt-day" data-day="28">Oct 20</div>
-<div class="gantt-day" data-day="29">Oct 21</div>
-<div class="gantt-day" data-day="30">Oct 22</div>
-</div>
-</div>
-<div class="gantt-body">
-<div class="gantt-row">
-<div class="gantt-task">D1: Dataset Preparation</div>
-<div class="gantt-timeline">
-<div class="gantt-bar completed" style="left: 0%; width: 18.3%;" title="5.5 days - Completed">
-<span class="gantt-bar-text">5.5d</span>
-</div>
-</div>
-</div>
-<div class="gantt-row">
-<div class="gantt-task">D2: Model Development</div>
-<div class="gantt-timeline">
-<div class="gantt-bar in-progress" style="left: 18.3%; width: 30%;" title="9 days - Not Started">
-<span class="gantt-bar-text">9d</span>
-</div>
-</div>
-</div>
-<div class="gantt-row">
-<div class="gantt-task">D3: Evaluation &amp; Analysis</div>
-<div class="gantt-timeline">
-<div class="gantt-bar pending" style="left: 48.3%; width: 31.7%;" title="9.5 days - Not Started">
-<span class="gantt-bar-text">9.5d</span>
-</div>
-</div>
-</div>
-<div class="gantt-row">
-<div class="gantt-task">D4: Product Presentation</div>
-<div class="gantt-timeline">
-<div class="gantt-bar pending" style="left: 80%; width: 20%;" title="6.5 days - Not Started">
-<span class="gantt-bar-text">6.5d</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="gantt-legend">
-<div class="legend-item">
-<div class="legend-color completed"></div>
-<span>Completed</span>
-</div>
-<div class="legend-item">
-<div class="legend-color in-progress"></div>
-<span>In Progress</span>
-</div>
-<div class="legend-item">
-<div class="legend-color pending"></div>
-<span>Not Started</span>
-</div>
-</div>
-</div>
-</div>
-<div class="section collapsed" id="risks">
-<div class="section-header" onclick="toggleSection(this)">
-<h2>⚠️ Risk Assessment Matrix</h2>
-<span class="chevron">▼</span>
-</div>
-<div class="section-content">
-<div class="risk-matrix-container">
-<div class="risk-matrix">
-<div class="risk-matrix-header">
-<div class="risk-axis-label">Impact →</div>
-<div class="risk-header-cell">Low</div>
-<div class="risk-header-cell">Medium</div>
-<div class="risk-header-cell">High</div>
-</div>
-<div class="risk-matrix-row">
-<div class="risk-row-label">High Probability</div>
-<div class="risk-cell risk-medium">
-<div class="risk-item">Data Quality Issues</div>
-</div>
-<div class="risk-cell risk-high">
-<div class="risk-item">Model Accuracy Below Target</div>
-</div>
-<div class="risk-cell risk-critical">
-<div class="risk-item">Time Constraints</div>
-</div>
-</div>
-<div class="risk-matrix-row">
-<div class="risk-row-label">Medium Probability</div>
-<div class="risk-cell risk-low">
-<div class="risk-item">Library Compatibility</div>
-</div>
-<div class="risk-cell risk-medium">
-<div class="risk-item">Hardware Limitations</div>
-</div>
-<div class="risk-cell risk-high">
-<div class="risk-item">Dataset Licensing Issues</div>
-</div>
-</div>
-<div class="risk-matrix-row">
-<div class="risk-row-label">Low Probability</div>
-<div class="risk-cell risk-low">
-<div class="risk-item">Academic Policy Changes</div>
-</div>
-<div class="risk-cell risk-low">
-<div class="risk-item">Technology Obsolescence</div>
-</div>
-<div class="risk-cell risk-medium">
-<div class="risk-item">Ethical Concerns</div>
-</div>
-</div>
-</div>
-</div>
-<div class="risk-details">
-<h4>Risk Mitigation Strategies</h4>
-<div class="risk-strategies">
-<div class="strategy-item">
-<h5>🔴 Critical: Time Constraints</h5>
-<p><strong>Mitigation:</strong> Implement daily progress tracking, identify parallel tasks, maintain scope discipline, create contingency plans for deliverable simplification.</p>
-</div>
-<div class="strategy-item">
-<h5>🟠 High: Model Accuracy Below Target</h5>
-<p><strong>Mitigation:</strong> Research multiple pre-trained models, implement incremental testing, establish minimum acceptable accuracy threshold (70%), prepare alternative approaches.</p>
-</div>
-<div class="strategy-item">
-<h5>🟡 Medium: Data Quality Issues</h5>
-<p><strong>Mitigation:</strong> Validate multiple dataset sources, implement data cleaning protocols, establish quality metrics before training begins.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
+
+
 <div class="section collapsed" id="wbs">
 <div class="section-header" onclick="toggleSection(this)">
 <h2>🧱 Work Breakdown Structure (WBS)</h2>
@@ -1565,7 +1425,7 @@
 </div>
 <div class="section collapsed" id="methodology">
 <div class="section-header" onclick="toggleSection(this)">
-<h2>🧩 Project Methodology Explanation</h2>
+<h2>🧩 Project Methodology</h2>
 <span class="chevron">▼</span>
 </div>
 <div class="section-content">
@@ -1578,10 +1438,10 @@
 </div>
 <div class="section collapsed" id="tools">
 <div class="section-header" onclick="toggleSection(this)">
-<h2>🛠️ Project Tool Selection Explanation</h2>
+<h2>🛠️ Project Tool Selection</h2>
 <span class="chevron">▼</span>
 </div>
-<div class="section-content">
+<div class="section-content"><p>Asana is an online project collaboration tool that is used for workflow management. It enables businesses to manage, communicate, and organize project tasks into multiple different views to create at-a-glance understanding of a project as it is being completed.</p>
 <p>Asana works best for my chosen methodology because it fits the rigid deliverable timeline that I have established, but also has the flexibility in the case of unexpected work. It also allows me to iterate my work, which I will be doing since the project is training an AI model, which by definition requires testing and retesting.</p>
 <p>The structure of the project is phases of work that starts with researching the tools I will use, then creating an implementation of the model. Finally, I will iterate over the model as I increase its accuracy and then deliver a presentation for the class.</p>
 <div class="methodology-diagram">
