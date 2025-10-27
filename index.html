@@ -1019,6 +1019,41 @@
                 flex-direction: column;
                 gap: 15px;
             }
+			
+			/* ===== Subpage Navigation Bar ===== */
+			.sub-nav {
+				background: var(--card-bg);
+				border-radius: 15px;
+				margin-bottom: 25px;
+				padding: 12px 20px;
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				gap: 15px;
+				box-shadow: var(--shadow);
+				border: 1px solid var(--border-color);
+			}
+
+			.sub-nav a {
+				padding: 8px 16px;
+				background: var(--primary-gradient);
+				color: white;
+				border-radius: 25px;
+				text-decoration: none;
+				font-weight: 500;
+				transition: all 0.3s ease;
+			}
+
+			.sub-nav a:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+			}
+
+			.sub-nav .active {
+				background: var(--secondary-color);
+				box-shadow: 0 0 0 2px rgba(30, 64, 175, 0.2);
+			}
+
 
             .controls {
                 width: 100%;
@@ -1045,42 +1080,33 @@
 <span class="current">Emotion Recognition AI</span>
 </div>
 <div class="controls">
-<input class="search-box" id="searchBox" placeholder="Search..." type="text"/>
+<nav class="sub-nav">
+  <a href="index.html">🏠 Main Dashboard</a>
+  <a href="status_updates.html" class="active">📈 Status Updates</a>
+  <a href="final_packet.html">📦 Final Packet</a>
+</nav>
 <button class="theme-toggle" onclick="toggleTheme()">🌓 Toggle Theme</button>
+
 </div>
 </nav>
+<div class="nav-tabs">
+<button class="nav-tab active" onclick="scrollToSection('executive-summary')">📋 Summary</button>
+<button class="nav-tab" onclick="scrollToSection('vision')">🎯 Vision &amp; Strategy</button>
+<button class="nav-tab" onclick="scrollToSection('business')">💼 Business Case</button>
+<button class="nav-tab" onclick="scrollToSection('scope')">📏 Scope</button>
+<button class="nav-tab" onclick="scrollToSection('deliverables')">📦 Deliverables</button>
+<button class="nav-tab" onclick="scrollToSection('gantt')">📅 Gantt Chart</button>
+<button class="nav-tab" onclick="scrollToSection('risks')">⚠️ Risk Matrix</button>
+<button class="nav-tab" onclick="scrollToSection('wbs')">🧱 WBS</button>
+<button class="nav-tab" onclick="scrollToSection('methodology')">🧩 Methodology</button>
+<button class="nav-tab" onclick="scrollToSection('tools')">🛠️ Tools</button>
+<button class="nav-tab" onclick="scrollToSection('stakeholders')">👥 Stakeholders</button>
+</div>
 <div class="hero">
 <h1>Emotion Recognition AI</h1>
 <p>Build an AI model for recognizing facial expressions and determining emotional responses. This model will take webcam data and, in real time, analyze the emotion of a person captured by the camera. I chose this AI-focused project because I haven't built an AI model before, and I believe it's a crucial skill for the future.</p>
 </div>
-<div class="section" id="status-reports">
-<div class="section-header" onclick="toggleSection(this)">
-<h2>📈 Status Reports</h2>
-<span class="chevron">▼</span>
-</div>
-<div class="section-content">
-<style>
-      .health-badge { font-weight:700; padding:4px 10px; border-radius:10px; display:inline-block; }
-      .health-green { background:#d4edda; color:#155724; }
-      .health-yellow { background:#fff3cd; color:#856404; }
-      .health-red { background:#f8d7da; color:#721c24; }
-    </style>
-<table class="stakeholder-table">
-<thead>
-<tr>
-<th>Date Range</th>
-<th>Project Health</th><th>Executive Summary</th>
-<th>Accomplishments</th>
-<th>Plan for Next Week</th>
-<th>Upcoming Milestones</th>
-<th>Issues &amp; Risks / Mitigations</th>
-<th>Changes Since Last Report</th>
-</tr>
-</thead>
-<tbody><tr><td>Week 9: Oct. 15 - Oct. 20, 2025</td><td><span class="health-badge health-yellow">🟡 AT RISK</span></td><td>Model was attempted to be loaded locally but some error prevented proper install. Researching alternatives, currently testing Google Colab.</td><td><div>• Installed Python</div><div>• Installed Anaconda</div><div>• Testing Environment</div><div>• Successfully accessed Google Colab</div></td><td><div>• Check Google Colab's viability for this project</div><div>• If possible, upload dataset to Colab</div><div>• Create first iteration of model</div></td><td><div>• Baseline Model — <em>10/27/2025</em> <strong>(At Risk)</strong></div><div>• Fine-Tune Model — <em>11/3/2025</em> <strong>(At Risk)</strong></div><div>• Evaluate Robustness — <em>11/3/2025</em> <strong>(At Risk)</strong></div></td><td>Loading Base Model locally was unsuccessful. Looking into alternative of the same model using Google Colab.</td><td>—</td></tr><tr><td>Week 8: Oct. 8 - Oct. 14.2025</td><td><span class="health-badge health-green">🟢 ON TRACK</span></td><td>Dataset was obtained from Kaggle.com. Data was separated into training and testing groups, subdivided by the 7 emotions the AI will recognize: Angry, Disgust, Fear, Happy, Neutral, Sad, and Surprise.</td><td><div>• Obtained dataset</div><div>• Separated dataset into training/testing groups</div><div>• Loaded pre-trained model onto local machine</div></td><td><div>• Load training dataset into the model</div><div>• Train model to identify emotions</div><div>• Test accuracy of model</div></td><td><div>• Baseline Model — <em>10/20/2025</em> <strong>(ON TRACK)</strong></div><div>• Fine-Tune Model — <em>10/27/2025</em> <strong>(ON TRACK)</strong></div><div>• Evaluate Robustness — <em>10/27/2025</em> <strong>(ON TRACK)</strong></div></td><td>—</td><td>Change #1: Date: 2025-10-12 Description: Augmentations to training set removed, may be replaced with train the model with another dataset with more augmented features such as lighting. Reason / Impact if not made: Initial dataset does not have augment-able qualities, since all the pictures are in grayscale.</td></tr><tr><td>Week 7: Sep 30 - Oct 7</td><td><span class="health-badge health-green">🟢 ON TRACK</span></td><td>Research on gathering data for the project. Gathering criteria for testing and how to qualify the results of model training iterations. Free datasets are the most likely to be used as the project has no time for personally gathering the data and using a paid dataset is not necessary.</td><td><div>• Researched Evaluation Metrics</div><div>• Researched available datasets</div><div>• Learned about criterion for data quality when it comes to facial recognition</div></td><td><div>• Download and sort dataset</div><div>• Download AI model</div><div>• Configure baseline model</div></td><td><div>• Obtain Dataset — <em>10/6/2025</em> <strong>(ON TRACK)</strong></div><div>• Baseline Model — <em>10/13/2025</em> <strong>(ON TRACK)</strong></div><div>• Fine-Tune Model — <em>10/27/2025</em> <strong>(ON TRACK)</strong></div></td><td>Asana Free Trial Ended LOW — Mitigation: Downgraded to free personal plan</td><td>—</td></tr><tr><td>Week 6 9/22 - 9/26</td><td><span class="health-badge health-green">🟢 ON TRACK</span></td><td>Transitioning into the execute phase of the project. First deliverable is to research and obtain materials for the model. This involves gathering training/testing data and a pre-trained facial recognition model.</td><td><div>• Research Different pretrained AI Models</div><div>• Research Facial Expression Recognition</div><div>• Research Model Installation</div></td><td><div>• Research Evaluation Metrics</div><div>• Research available datasets</div><div>• Evaluate Criteria for Data Quality</div></td><td><div>• Obtain Datset — <em>10/6/2025</em> <strong>(ON TRACK)</strong></div><div>• Baseline Model — <em>10/13/2025</em> <strong>(ON TRACK)</strong></div><div>• Fine-Tune model — <em>10/27/2025</em> <strong>(ON TRACK)</strong></div></td><td>—</td><td>—</td></tr></tbody>
-</table>
-</div>
-</div><div class="section" id="executive-summary">
+<div class="section" id="executive-summary">
 <div class="section-header">
 <h2>📋 Executive Summary</h2>
 </div>
@@ -1107,94 +1133,6 @@
 </div>
 </div>
 </div>
-<div class="section" id="dashboard">
-<div class="section-header">
-<h2>📊 Project Dashboard</h2>
-</div>
-<div class="section-content">
-<div class="dashboard-grid">
-<div class="metric-card">
-<div class="metric-header">
-<h4>Overall Progress</h4>
-<span class="metric-value">18%</span>
-</div>
-<div class="progress-bar-dashboard">
-<div class="progress-fill-dashboard" style="width: 18%"></div>
-</div>
-<p class="metric-description">5.5/30 days completed (Planning phase)</p>
-</div>
-<div class="metric-card">
-<div class="metric-header">
-<h4>Tasks Completed</h4>
-<span class="metric-value">9/28</span>
-</div>
-<div class="progress-bar-dashboard">
-<div class="progress-fill-dashboard" style="width: 32%"></div>
-</div>
-<p class="metric-description">Completed tasks: 1.2.1–1.2.3 finalized</p>
-</div>
-<div class="metric-card">
-<div class="metric-header">
-<h4>Budget Utilization</h4>
-<span class="metric-value">$0</span>
-</div>
-<div class="progress-bar-dashboard">
-<div class="progress-fill-dashboard" style="width: 0%"></div>
-</div>
-<p class="metric-description">Academic project - time investment only</p>
-</div>
-<div class="metric-card">
-<div class="metric-header">
-<h4>Risk Level</h4>
-<span class="metric-value risk-medium">Medium</span>
-</div>
-<div class="risk-indicators">
-<div class="risk-dot risk-low"></div>
-<div class="risk-dot risk-medium active"></div>
-<div class="risk-dot risk-high"></div>
-</div>
-<p class="metric-description">Data quality and model accuracy concerns</p>
-</div>
-</div>
-<div class="deliverable-timeline">
-<h4>Deliverable Progress Timeline</h4>
-<div class="timeline-chart">
-<div class="timeline-track">
-<div class="timeline-segment completed" style="width: 18.3%">
-<span class="timeline-label">D1: Data &amp; Model</span>
-<div class="timeline-progress" style="width: 100%"></div>
-</div>
-<div class="timeline-segment" style="width: 30%">
-<span class="timeline-label">D2: Face Recognition</span>
-<div class="timeline-progress" style="width: 0%"></div>
-</div>
-<div class="timeline-segment" style="width: 31.7%">
-<span class="timeline-label">D3: Emotion Accuracy</span>
-<div class="timeline-progress" style="width: 0%"></div>
-</div>
-<div class="timeline-segment" style="width: 20%">
-<span class="timeline-label">D4: Presentation</span>
-<div class="timeline-progress" style="width: 0%"></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="nav-tabs">
-<button class="nav-tab active" onclick="scrollToSection('executive-summary')">📋 Summary</button>
-<button class="nav-tab" onclick="scrollToSection('dashboard')">📊 Dashboard</button>
-<button class="nav-tab" onclick="scrollToSection('vision')">🎯 Vision &amp; Strategy</button>
-<button class="nav-tab" onclick="scrollToSection('business')">💼 Business Case</button>
-<button class="nav-tab" onclick="scrollToSection('scope')">📏 Scope</button>
-<button class="nav-tab" onclick="scrollToSection('deliverables')">📦 Deliverables</button>
-<button class="nav-tab" onclick="scrollToSection('gantt')">📅 Gantt Chart</button>
-<button class="nav-tab" onclick="scrollToSection('risks')">⚠️ Risk Matrix</button>
-<button class="nav-tab" onclick="scrollToSection('wbs')">🧱 WBS</button>
-<button class="nav-tab" onclick="scrollToSection('methodology')">🧩 Methodology</button>
-<button class="nav-tab" onclick="scrollToSection('tools')">🛠️ Tools</button>
-<button class="nav-tab" onclick="scrollToSection('stakeholders')">👥 Stakeholders</button>
-<button class="nav-tab" onclick="scrollToSection('status-reports')">📈 Status Reports</button></div>
 <div class="section collapsed" id="vision">
 <div class="section-header" onclick="toggleSection(this)">
 <h2>🎯 Vision, Mission &amp; Strategy Alignment</h2>
