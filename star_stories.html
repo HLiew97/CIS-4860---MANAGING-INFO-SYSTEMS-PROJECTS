@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Adaptive STAR Stories — Split Sections</title>
+<style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary-gradient: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #1d4ed8 100%);
+            --primary-color: #1e40af;
+            --secondary-color: #1e3a8a;
+            --bg-color: #f8fafc;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --text-color: #333;
+            --text-muted: #666;
+            --border-color: rgba(255, 255, 255, 0.2);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        [data-theme="dark"] {
+            --primary-gradient: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #1d4ed8 100%);
+            --primary-color: #3b82f6;
+            --secondary-color: #1e40af;
+            --bg-color: #0f172a;
+            --card-bg: rgba(15, 23, 42, 0.95);
+            --text-color: #e2e8f0;
+            --text-muted: #94a3b8;
+            --border-color: rgba(148, 163, 184, 0.2);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; background: var(--primary-gradient); color: var(--text-color); line-height: 1.6; min-height: 100vh; transition: all 0.3s ease; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .top-nav { position: sticky; top: 0; background: var(--card-bg); backdrop-filter: blur(20px); border-radius: 20px; margin-bottom: 20px; padding: 15px 25px; display: flex; justify-content: space-between; align-items: center; box-shadow: var(--shadow); border: 1px solid var(--border-color); z-index: 100; }
+        .breadcrumb { display: flex; align-items: center; gap: 10px; color: var(--text-muted); font-size: 0.9rem; }
+        .breadcrumb .current { color: var(--primary-color); font-weight: 600; }
+        .controls { display: flex; align-items: center; gap: 15px; }
+        .theme-toggle { background: var(--primary-gradient); border: none; border-radius: 25px; padding: 8px 16px; color: white; cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem; }
+        .theme-toggle:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); }
+        .hero { background: var(--card-bg); backdrop-filter: blur(10px); border-radius: 20px; padding: 40px; margin-bottom: 30px; text-align: center; box-shadow: var(--shadow); border: 1px solid var(--border-color); position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--primary-gradient); }
+        .hero h1 { font-size: 3rem; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; font-weight: 700; animation: fadeInUp 0.8s ease; }
+        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 800px; margin: 0 auto; animation: fadeInUp 0.8s ease 0.2s both; }
+        .nav-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; justify-content: center; }
+        .nav-tab { padding: 12px 24px; background: var(--card-bg); border: none; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; font-weight: 500; color: var(--primary-color); backdrop-filter: blur(10px); box-shadow: var(--shadow); border: 1px solid var(--border-color); text-decoration: none; }
+        .nav-tab:hover, .nav-tab.active { transform: translateY(-2px); box-shadow: var(--hover-shadow); background: var(--primary-gradient); color: white; }
+        .section { background: var(--card-bg); backdrop-filter: blur(10px); border-radius: 20px; margin-bottom: 20px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--border-color); transition: all 0.3s ease; opacity: 0; animation: fadeInUp 0.6s ease forwards; }
+        .section:hover { transform: translateY(-5px); box-shadow: var(--hover-shadow); }
+        .section-header { padding: 25px 30px; background: var(--primary-gradient); color: white; cursor: pointer; display: flex; align-items: center; justify-content: space-between; transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .section-header::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); transition: left 0.5s ease; }
+        .section-header:hover::before { left: 100%; }
+        .section-header h2 { font-size: 1.5rem; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+        .chevron { font-size: 1.2rem; transition: transform 0.3s ease; }
+        .section.collapsed .chevron { transform: rotate(-90deg); }
+        .section-content { padding: 30px; transition: all 0.3s ease; max-height: 5000px; overflow: hidden; }
+        .section.collapsed .section-content { max-height: 0; padding-top: 0; padding-bottom: 0; }
+        .story { margin-bottom: 10px; }
+        .story h3 { color: var(--primary-color); margin-bottom: 10px; font-weight: 600; }
+        .story p { margin: 0.5rem 0; color: var(--text-color); }
+        .meta { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 10px; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 768px) { .hero h1 { font-size: 2rem; } .container { padding: 15px; } .section-content { padding: 20px; } }
+</style>
+<script>
+function toggleSection(el){ const section = el.closest('.section'); if(section){ section.classList.toggle('collapsed'); } }
+function toggleTheme(){ const b = document.body; b.setAttribute('data-theme', b.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'); }
+</script>
+</head>
+<body data-theme="light">
+  <div class="container">
+    <nav class="top-nav">
+      <div class="breadcrumb">
+        <span>CIS-4860</span><span>›</span><span class="current">STAR Stories</span>
+      </div>
+      <div class="controls">
+        <nav class="sub-nav">
+		  <a href="index.html">🏠 Main Dashboard</a>
+		  <a href="project_page.html">Project Overview</a>
+		  <a href="status_updates.html">📈 Status Updates</a>
+		  <a href="closure.html">📦 Closure Document</a>
+		  <a href="interviews.html">Interviews</a>
+        </nav>
+        <button class="theme-toggle" onclick="toggleTheme()">🌓 Toggle Theme</button>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <h1>STAR Stories</h1>
+      <p>Five reflections demonstrating adaptability, leadership, and problem‑solving. Each story is now its own section for easier navigation.</p>
+    </div>
+
+    <div class="nav-tabs" style="margin-bottom:20px;">
+      <a class="nav-tab" href="index.html">⬅️ Back to Charter</a>
+	  <LB><BR>
+      <a class="nav-tab" href="#pivot-under-pressure">Pivot Under Pressure</a>
+      <a class="nav-tab" href="#recovery-from-failure">Recovery from Failure</a>
+      <a class="nav-tab" href="#external-factor-response">External Factor Response</a>
+      <a class="nav-tab" href="#adaptive-leadership-style">Adaptive Leadership Style</a>
+      <a class="nav-tab" href="#simplifying-complexity">Simplifying Complexity</a>
+    </div>
+
+    <!-- 1. Pivot Under Pressure -->
+    <section class="section" id="pivot-under-pressure">
+      <div class="section-header" onclick="toggleSection(this)">
+        <h2>⭐ Adapting my Emotion Recognition AI Project to Sudden Setbacks</h2>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="section-content">
+        <article class="story">
+          <h3>11. Embrace adaptability and resiliency — Pivot Under Pressure</h3>
+          <p>For a project I was doing where I was developing an AI model for emotion recognition, I had to install the framework into my local computer and run training using my own hardware. Unfortunately, there was an error with the installation due to outdated software incompatibility. To accomplish the project, I needed to find a way to train the model. To work around this issue, I transferred the project to a cloud platform, Google Colab. Using Google’s computational power, I was able to run the project without having to use my local machine. As a result, my project was able to be completed with no further technical complications. I learned how to quickly respond to sudden challenges to my plans.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 2. Recovery from Failure -->
+    <section class="section" id="recovery-from-failure">
+      <div class="section-header" onclick="toggleSection(this)">
+        <h2>⭐ Quickly Adapting Project Plans to Unexpected Disruptions</h2>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="section-content">
+        <article class="story">
+          <h3>11. Embrace adaptability and resiliency — Recovery from Failure</h3>
+          <p>I had a team presentation for a class where the work distribution had everyone construct the content of the presentation and we would have one person do the presentation itself. The week before presentation, our presenter got very sick and would be unable to present. We had to adapt to this, so we coordinated to each take a section of the presentation and would cover the work. I wrote some notecards for my section and the day of the presentation I was prepared to speak in the place of our presenter. Ultimately this was not necessary, as the presentation was pushed to another date, but I learned how to quickly reorganize project plans and maintain readiness under unexpected disruptions.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3. External Factor Response -->
+    <section class="section" id="external-factor-response">
+      <div class="section-header" onclick="toggleSection(this)">
+        <h2>⭐ Responding to Workplace Shifts due to COVID-19</h2>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="section-content">
+        <article class="story">
+          <h3>5. Recognize, evaluate, and respond to system interactions — External Factor Response</h3>
+          <p>Around the start of COVID, I had a job in the restaurant business. Because people could no longer go out, we could not continue normal business operations. To adjust to COVID, we switched to a take-out centric business model, and most of my work became handling to-go orders. I learned how to handle a mixture of phone/online orders, food packaging, and customer service during social distancing. I learned how to adapt to system-level changes by adapting to external factors and stayed productive and flexible.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 4. Adaptive Leadership Style -->
+    <section class="section" id="adaptive-leadership-style">
+      <div class="section-header" onclick="toggleSection(this)">
+        <h2>⭐ How to Lead Without Forcing Your Methods</h2>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="section-content">
+        <article class="story">
+          <h3>6. Demonstrate leadership behaviors — Adaptive Leadership Style</h3>
+          <p>I had a group project for a class that required collaborative work throughout the semester. Normally for group projects I like to complete the work as early as possible to allow for revisions or sudden issues. For this one project, I was the team lead and found that one of my teammates had trouble following that workflow, preferring to complete all the work very close to the deadline. I had to adapt my leadership style to account for this without sacrificing the revision phase. Rather than enforce my work style on him, I would complete my work and review his portion as he would work on it. This maintained quality while allowing for his work style. As a result, we were able to complete the project with less friction between members. This event taught me effective leadership requires flexibility in managing diverse work styles.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 5. Simplifying Complexity -->
+    <section class="section" id="simplifying-complexity">
+      <div class="section-header" onclick="toggleSection(this)">
+        <h2>⭐ How to Breakdown a Complex Task</h2>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="section-content">
+        <article class="story">
+          <h3>9. Navigate complexity — Simplifying Complexity</h3>
+          <p>I had a project that involved teaching multiple people a complex game system that I was not comfortably familiar with. To break this problem into manageable pieces, I isolated aspects of the project and organized them into an order that I felt would allow me to efficiently complete the project. First, I studied the system and learned about the nuances that might confuse people. I then practiced how I would convey this information to others and anticipated questions they had. I then taught them the system in small groups to better respond to individual confusions. Afterwards, the people I taught complimented me on how knowledgeable I was in the system and felt confident in their own understanding of the system. In this way, I learned how to break down a compound issue and became better at navigating complexity.</p>
+        </article>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>
