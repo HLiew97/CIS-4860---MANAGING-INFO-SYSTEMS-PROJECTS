@@ -3,172 +3,9 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Emotion Recognition AI - Project Dashboard</title>
+<title>Emotion Recognition AI — Project Dashboard</title>
 
-<!-- ===== Shared Styles from status_updates.html ===== -->
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-:root {
-    --primary-gradient: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #1d4ed8 100%);
-    --primary-color: #1e40af;
-    --secondary-color: #1e3a8a;
-    --bg-color: #f8fafc;
-    --card-bg: rgba(255, 255, 255, 0.95);
-    --text-color: #333;
-    --text-muted: #666;
-    --border-color: rgba(255, 255, 255, 0.2);
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
-[data-theme="dark"] {
-    --primary-gradient: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #1d4ed8 100%);
-    --primary-color: #3b82f6;
-    --secondary-color: #1e40af;
-    --bg-color: #0f172a;
-    --card-bg: rgba(15, 23, 42, 0.95);
-    --text-color: #e2e8f0;
-    --text-muted: #94a3b8;
-    --border-color: rgba(148, 163, 184, 0.2);
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-}
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: var(--primary-gradient);
-    color: var(--text-color);
-    line-height: 1.6;
-    min-height: 100vh;
-    transition: all 0.3s ease;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.top-nav {
-    position: sticky;
-    top: 0;
-    background: var(--card-bg);
-    backdrop-filter: blur(20px);
-    border-radius: 20px;
-    margin-bottom: 20px;
-    padding: 15px 25px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border-color);
-    z-index: 100;
-}
-
-.breadcrumb {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-}
-
-.breadcrumb .current {
-    color: var(--primary-color);
-    font-weight: 600;
-}
-
-.controls {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.theme-toggle {
-    background: var(--primary-gradient);
-    border: none;
-    border-radius: 25px;
-    padding: 8px 16px;
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
-}
-.theme-toggle:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-}
-
-.hero {
-    background: var(--card-bg);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 50px 40px;
-    margin-bottom: 40px;
-    text-align: center;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border-color);
-    position: relative;
-    overflow: hidden;
-}
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: var(--primary-gradient);
-}
-.hero h1 {
-    font-size: 3rem;
-    background: var(--primary-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 15px;
-    font-weight: 700;
-}
-.hero p {
-    font-size: 1.2rem;
-    color: var(--text-muted);
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* ===== Button Grid for Homepage ===== */
-.button-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    margin-top: 40px;
-}
-
-.home-button {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 20px;
-    text-decoration: none;
-    color: var(--primary-color);
-    background: var(--card-bg);
-    border-radius: 20px;
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border-color);
-    font-size: 1.2rem;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-.home-button:hover {
-    transform: translateY(-5px);
-    background: var(--primary-gradient);
-    color: white;
-    box-shadow: var(--hover-shadow);
-}
-
-@media (max-width: 768px) {
-    .hero h1 { font-size: 2rem; }
-    .button-grid { grid-template-columns: 1fr 1fr; }
-}
-</style>
+<link rel="stylesheet" href="style.css">
 
 <script>
 function toggleTheme(){
@@ -180,40 +17,32 @@ function toggleTheme(){
 
 <body data-theme="light">
   <div class="container">
-    <!-- Navigation Bar -->
-    <<nav class="top-nav">
-<div class="breadcrumb">
-<span>CIS-4860</span>
-<span>›</span>
-<span class="current">Emotion Recognition AI</span>
-</div>
-<div class="controls">
-<nav class="sub-nav">
-  <a href="project_page.html">Project Overview</a>
-  <a href="status_updates.html">📈 Status Updates</a>
-  <a href="closure.html">📦 Closure Document</a>
-  <a href="interviews.html">Interviews</a>
-  <a href="star_stories.html">STAR Stories</a>
-</nav>
-<button class="theme-toggle" onclick="toggleTheme()">🌓 Toggle Theme</button>
 
-</div>
-</nav>
+    <!-- Sub-nav matching closure.html -->
+    <nav class="sub-nav">	  
+      <a href="index.html" class="active">🏠 Project Dashboard</a>
+      <a href="project_page.html" class="ghost">📑 Project Overview</a>
+      <a href="status_updates.html" class="ghost">📈 Status Updates</a>
+      <a href="closure.html" class="ghost">✅ Project Closure</a>
+      <a href="interviews.html" class="ghost">🎤 Interviews</a>
+      <a href="star_stories.html" class="ghost">⭐ STAR Stories</a>
+    </nav>
 
     <!-- Hero Section -->
     <div class="hero">
       <h1>Emotion Recognition AI</h1>
-      <p>Select a section below to view project materials and progress reports.</p>
+      <p>Select a section below to view project materials, status updates, and closure documentation.</p>
     </div>
 
     <!-- Button Grid -->
     <div class="button-grid">
-      <a href="project_page.html" class="home-button">Project Overview</a>
+      <a href="project_page.html" class="home-button">📑 Project Overview</a>
       <a href="status_updates.html" class="home-button">📈 Status Updates</a>
-      <a href="closure.html" class="home-button">📦 Closure Document</a>
-      <a href="interviews.html" class="home-button">Interviews</a>
-      <a href="star_stories.html" class="home-button">STAR Stories</a>
+      <a href="closure.html" class="home-button">✅ Closure Document</a>
+      <a href="interviews.html" class="home-button">🎤 Interviews</a>
+      <a href="star_stories.html" class="home-button">⭐ STAR Stories</a>
     </div>
+
   </div>
 </body>
 </html>

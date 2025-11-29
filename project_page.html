@@ -969,7 +969,41 @@
                 transform: translateY(0);
             }
         }
+		
+		/* ===== Subpage Navigation Bar ===== */
+			.sub-nav {
+				background: var(--card-bg);
+				border-radius: 15px;
+				margin-bottom: 25px;
+				padding: 12px 20px;
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				gap: 15px;
+				box-shadow: var(--shadow);
+				border: 1px solid var(--border-color);
+			}
 
+			.sub-nav a {
+				padding: 8px 16px;
+				background: var(--primary-gradient);
+				color: white;
+				border-radius: 25px;
+				text-decoration: none;
+				font-weight: 500;
+				transition: all 0.3s ease;
+			}
+
+			.sub-nav a:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+			}
+
+			.sub-nav .active {
+				background: var(--secondary-color);
+				box-shadow: 0 0 0 2px rgba(30, 64, 175, 0.2);
+			}
+			
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2rem;
@@ -1020,41 +1054,9 @@
                 gap: 15px;
             }
 			
-			/* ===== Subpage Navigation Bar ===== */
 			.sub-nav {
-				background: var(--card-bg);
-				border-radius: 15px;
-				margin-bottom: 25px;
-				padding: 12px 20px;
-				display: flex;
-				justify-content: flex-start;
-				align-items: center;
-				gap: 15px;
-				box-shadow: var(--shadow);
-				border: 1px solid var(--border-color);
-			}
-
-			.sub-nav a {
-				padding: 8px 16px;
-				background: var(--primary-gradient);
-				color: white;
-				border-radius: 25px;
-				text-decoration: none;
-				font-weight: 500;
-				transition: all 0.3s ease;
-			}
-
-			.sub-nav a:hover {
-				transform: translateY(-2px);
-				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-			}
-
-			.sub-nav .active {
-				background: var(--secondary-color);
-				box-shadow: 0 0 0 2px rgba(30, 64, 175, 0.2);
-			}
-
-
+        overflow-x: auto;
+    }
             .controls {
                 width: 100%;
                 justify-content: space-between;
@@ -1073,25 +1075,124 @@
 </head>
 <body data-theme="light">
 <div class="container">
-<nav class="top-nav">
-<div class="breadcrumb">
-<span>CIS-4860</span>
-<span>›</span>
-<span class="current">Emotion Recognition AI</span>
-</div>
-<div class="controls">
-<nav class="sub-nav">
-  <a href="index.html">🏠 Main Dashboard</a>
-  <a href="status_updates.html">📈 Status Updates</a>
-  <a href="closure.html">📦 Closure Document</a>
-  <a href="interviews.html">Interviews</a>
-  <a href="star_stories.html">STAR Stories</a>
-</nav>
-<button class="theme-toggle" onclick="toggleTheme()">🌓 Toggle Theme</button>
+<nav
+  class="sub-nav"
+  style="
+    background: var(--card-bg);
+    border-radius: 15px;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+  "
+>
+  <a
+    href="index.html"
+    class="ghost"
+    style="
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-weight: 600;
+      background: transparent;
+      color: var(--primary-color);
+      border: 1px solid var(--border-color);
+      transition: transform .2s, box-shadow .2s;
+      white-space: nowrap;
+    "
+  >
+    🏠 Project Dashboard
+  </a>
 
-</div>
+      <a href="project_page.html" class="active">📑 Project Overview</a>
+  <a
+    href="status_updates.html"
+    class="ghost"
+    style="
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-weight: 600;
+      background: transparent;
+      color: var(--primary-color);
+      border: 1px solid var(--border-color);
+      transition: transform .2s, box-shadow .2s;
+      white-space: nowrap;
+    "
+  >
+    📈 Status Updates
+  </a>
+
+  <a
+    href="closure.html"
+    class="ghost"
+    style="
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-weight: 600;
+      background: transparent;
+      color: var(--primary-color);
+      border: 1px solid var(--border-color);
+      transition: transform .2s, box-shadow .2s;
+      white-space: nowrap;
+    "
+  >
+    ✅ Project Closure
+  </a>
+
+  <a
+    href="interviews.html"
+    class="ghost"
+    style="
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-weight: 600;
+      background: transparent;
+      color: var(--primary-color);
+      border: 1px solid var(--border-color);
+      transition: transform .2s, box-shadow .2s;
+      white-space: nowrap;
+    "
+  >
+    🎤 Interviews
+  </a>
+
+  <a
+    href="star_stories.html"
+    class="ghost"
+    style="
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-weight: 600;
+      background: transparent;
+      color: var(--primary-color);
+      border: 1px solid var(--border-color);
+      transition: transform .2s, box-shadow .2s;
+      white-space: nowrap;
+    "
+  >
+    ⭐ STAR Stories
+  </a>
+ 
 </nav>
-<div class="nav-tabs">
+
+
+	<div class="nav-tabs" style="margin-bottom:20px;">
+      <a class="nav-tab" href="index.html">⬅️ Back to Home</a>
+    </div>
+<div class="hero">
+
+<h1>Emotion Recognition AI</h1>
+<p>Build an AI model for recognizing facial expressions and determining emotional responses. This model will take webcam data and, in real time, analyze the emotion of a person captured by the camera. I chose this AI-focused project because I haven't built an AI model before, and I believe it's a crucial skill for the future.</p>
+</div>
+    <div class="nav-tabs">
 <button class="nav-tab active" onclick="scrollToSection('executive-summary')">📋 Summary</button>
 <button class="nav-tab" onclick="scrollToSection('vision')">🎯 Vision &amp; Strategy</button>
 <button class="nav-tab" onclick="scrollToSection('business')">💼 Business Case</button>
@@ -1104,13 +1205,6 @@
 <button class="nav-tab" onclick="scrollToSection('tools')">🛠️ Tools</button>
 <button class="nav-tab" onclick="scrollToSection('stakeholders')">👥 Stakeholders</button>
 </div>
-<div class="hero">
-<h1>Emotion Recognition AI</h1>
-<p>Build an AI model for recognizing facial expressions and determining emotional responses. This model will take webcam data and, in real time, analyze the emotion of a person captured by the camera. I chose this AI-focused project because I haven't built an AI model before, and I believe it's a crucial skill for the future.</p>
-</div>
-    <div class="nav-tabs" style="margin-bottom:20px;">
-      <a class="nav-tab" href="index.html">⬅️ Back to Charter</a>
-    </div>
 <div class="section" id="executive-summary">
 <div class="section-header">
 <h2>📋 Executive Summary</h2>
@@ -1418,7 +1512,7 @@
 </div>
 <div class="section-content">
 <div style="overflow-x: auto;">
-<img alt="Stakeholder visualization" src="Untitled.png" style="width:100%;margin:20px 0;"/><table class="stakeholder-table">
+<img alt="Stakeholder visualization" src="stakeholder_visual.png" style="width:100%;margin:20px 0;"/><table class="stakeholder-table">
 <thead>
 <tr>
 <th>Stakeholder</th>

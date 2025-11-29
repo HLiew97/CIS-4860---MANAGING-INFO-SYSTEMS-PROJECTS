@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Emotion Recognition AI — Interviews</title>
+
+  <!-- Link to shared stylesheet used by other pages -->
+  <link rel="stylesheet" href="style.css"/>
+
+  <script>
+    function toggleSection(el){
+      const s = el.closest('.section');
+      if (s) s.classList.toggle('collapsed');
+    }
+    function toggleTheme(){
+      const b = document.body;
+      b.setAttribute('data-theme', b.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+    }
+  </script>
+</head>
+
+<body data-theme="light">
+  <div class="container">
+
+    <!-- Shared sub-nav (match index/closure) -->
+    <nav class="sub-nav">
+      <a href="index.html" class="ghost">🏠 Project Dashboard</a>
+      <a href="project_page.html" class="ghost">📑 Project Overview</a>
+      <a href="status_updates.html" class="ghost">📈 Status Updates</a>
+      <a href="closure.html" class="ghost">✅ Project Closure</a>
+      <a href="interviews.html" class="active">🎤 Interviews</a>
+      <a href="star_stories.html" class="ghost">⭐ STAR Stories</a>
+    </nav>
+
+    <!-- Hero -->
+    <div class="hero">
+      <h1>Informational Interviews</h1>
+      <p>Reflections and insights from conversations with professionals about growth, project management, and working in unpredictable environments.</p>
+    </div>
+
+    <!-- Interview 1: Ahmed Omran -->
+    <div class="section" id="ahmed-omran">
+      <div class="section-header" onclick="toggleSection(this)">
+        <h2>🎙 Interview 1 — Ahmed Omran, Travel Agent</h2>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="section-content">
+        <div class="kv">
+          <div><strong>Name</strong></div>
+          <div>Ahmed Omran, Travel Agent</div>
+
+          <div><strong>Date of Meeting</strong></div>
+          <div>11/21/25</div>
+
+          <div><strong>Selection Rationale</strong></div>
+          <div>
+            My mother’s boss. Mr. Omran is in a field that isn’t directly IT related, but he is a technologically involved
+            person, often handling IT-related tasks for his work.
+          </div>
+        </div>
+
+        <h3 style="margin-top:18px;">Conversation Summary</h3>
+        <p style="margin-top:6px;">
+          The conversation began with me explaining the focus of my semester project. I described how I trained the system using
+          labeled 48×48 static facial images and tested its accuracy, noting that the project was both challenging and rewarding
+          because it was my first real experience with machine learning. Much of the course involved project-management phases
+          such as planning, execution, and closing, which shaped how I approached the technical work.
+        </p>
+        <p style="margin-top:8px;">
+          I then asked Mr. Omran about how project management functions in his work. He explained that every travel group he
+          organizes is treated as a project due to constant market changes and unpredictable demand. He described how he analyzes
+          past behavior, manages risk, negotiates with airlines and hotels, and adapts to dynamic conditions such as customer
+          habits, occupancy needs, and non-refundable inventory. The business, which operates in both B2B and B2C markets,
+          requires continual market research, cost control, and strong supplier relationships.
+        </p>
+        <p style="margin-top:8px;">
+          I asked about qualities he looks for when hiring, and he talked about business changes after COVID-19. He explained how
+          the pandemic reshaped staffing strategies, pushing the company to reduce costs, outsource work, rely on commission-based
+          roles, and maintain only essential internal staff. He emphasized that different industries require different
+          project-management approaches, and he encouraged students to learn from various business models. He also discussed how
+          AI is becoming increasingly integrated into their work—for example, through chatbots, automated customer service, and
+          improved booking systems.
+        </p>
+        <p style="margin-top:8px;">
+          Toward the end, the discussion returned to AI. Mr. Omran asked questions about the project model, such as how facial
+          expressions are analyzed, how training data works, and whether real-time video recognition is possible. I explained the
+          limitations of my semester project, the need for large datasets, and how tools like Google Colab helped me develop and
+          train the model. The conversation concluded with reflections on how similar AI tools might be used in the travel industry
+          for tasks such as assessing customer satisfaction through video chats or improving security processes.
+        </p>
+
+        <h3 style="margin-top:14px;">Key Insights</h3>
+        <ul>
+          <li>
+            Project management applies across very different fields. My work in AI and Mr. Omran’s work in travel both rely on
+            similar phases, showing that structured project management is universally valuable.
+          </li>
+          <li>
+            Understanding customer differences is crucial for AI design. His business highlighted how responses vary by region,
+            culture, or religious school of thought, showing why AI systems need context-aware logic and careful training.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Interview 2: Jeffery Shaw -->
+    <div class="section" id="jeffery-shaw">
+      <div class="section-header" onclick="toggleSection(this)">
+        <h2>🎙 Interview 2 — Jeffery Shaw, Business Owner</h2>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="section-content">
+        <div class="kv">
+          <div><strong>Name</strong></div>
+          <div>Jeffery Shaw, Business Owner</div>
+
+          <div><strong>Date of Meeting</strong></div>
+          <div>11/24/25</div>
+
+          <div><strong>Selection Rationale</strong></div>
+          <div>
+            Business owner of a partner business for my dad’s company. His company is a card shop that sells trading cards and
+            trading card paraphernalia. Not related to IT but it’s related to my current field of work.
+          </div>
+        </div>
+
+        <h3 style="margin-top:18px;">Conversation Summary</h3>
+        <p style="margin-top:6px;">
+          I started by explaining my semester project, training an AI model to recognize human emotions in images. I described using
+          a pre-trained face-detection model and then teaching it to classify expressions such as happiness or sadness. This led to
+          a broader discussion about learning AI fundamentals, prompting, and how the class encouraged hands-on experimentation
+          with AI tools, websites, and models.
+        </p>
+        <p style="margin-top:8px;">
+          Mr. Shaw responded by sharing personal background as an entrepreneur, recounting how their early business involved creating
+          photoshopped memorial montages for funeral homes and how that would have been much faster with modern AI tools. He then
+          described his current industry, where product availability and distributor unpredictability make structured planning
+          difficult. Most of their project management relies on Google Docs, constant communication, and flexibility because
+          allocations, release dates, and supply consistency frequently change.
+        </p>
+        <p style="margin-top:8px;">
+          When asked about project-management advice, Mr. Shaw emphasized triage and prioritization. He explained that writing
+          everything down and ranking tasks with simple systems like 1-2-3 levels of urgency helps prevent overwhelm and ensures
+          important tasks are completed first. In his business, this means prioritizing product releases, managing pre-orders
+          responsibly, and avoiding overselling to maintain customer trust. He described how chaotic the industry can be and argued
+          that adaptability is as important as planning.
+        </p>
+        <p style="margin-top:8px;">
+          Finally, Mr. Shaw discussed qualities he is looking for when hiring. He said he values “nerdism,” which he explained as
+          passion for the industry, strong customer service, critical thinking, and the ability to adapt. While many of their
+          employees hold degrees, formal education is less important to him than genuine interest and reliability. He highlighted
+          strong team retention, his commitment to supporting employees, and the challenges and importance of delegation.
+        </p>
+
+        <h3 style="margin-top:14px;">Key Insights</h3>
+        <ul>
+          <li>
+            Flexibility is essential in unpredictable industries. Because product allocations, release dates, and supply availability
+            constantly change, strict long-term planning doesn’t always work.
+          </li>
+          <li>
+            Prioritization is a critical project-management skill. It is important to ensure the most impactful work gets done and to
+            prevent lower-priority tasks from derailing progress.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Interview 3: Vincent Liew -->
+    <div class="section" id="vincent-liew">
+      <div class="section-header" onclick="toggleSection(this)">
+        <h2>🎙 Interview 3 — Vincent Liew, Business Owner</h2>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="section-content">
+        <div class="kv">
+          <div><strong>Name</strong></div>
+          <div>Vincent Liew, Business Owner</div>
+
+          <div><strong>Date of Meeting</strong></div>
+          <div>11/28/25</div>
+
+          <div><strong>Selection Rationale</strong></div>
+          <div>
+            My father, who has run his own business for over a decade.
+          </div>
+        </div>
+
+        <h3 style="margin-top:18px;">Conversation Summary</h3>
+        <p style="margin-top:6px;">
+          My father gave advice on learning project management, emphasizing the importance of setting clear objectives, defining
+          timelines, and assigning tasks based on team members’ strengths. He talked about maintaining a checklist of
+          responsibilities, meeting regularly to review progress, and adjusting as needed. I told him about how the class followed
+          a similar structured process. We talked about how aligning tasks with individual strengths leads to better project
+          outcomes.
+        </p>
+        <p style="margin-top:8px;">
+          We then talked about different communication styles in a team and managing conflicts because of another group project that
+          I am doing. He talked about how to give constructive feedback and maintain transparency with other members. He said
+          sometimes managing and planning with other people needs a lot of discussion early. If all else fails, developing backup
+          plans and adapting to unexpected situations is the only thing you can do.
+        </p>
+        <p style="margin-top:8px;">
+          Lastly, we talked about his business and how he manages it with project management. Since his company is small, there’s no
+          real need for him to do formal project-management paperwork. However, like he said before, the process of planning
+          everything, then executing, and then reviewing, is something that he does all the time. So, in that way, he always
+          practices project management, even without full documentation or planning tools.
+        </p>
+
+        <h3 style="margin-top:14px;">Key Insights</h3>
+        <ul>
+          <li>
+            Effective project management relies more on clear communication and strategic task-assignment than on formal tools. Even
+            if you don’t take time to write down all the parts of project management you do, in practice it is still a valuable process.
+          </li>
+          <li>
+            Adaptability and early discussion are essential for navigating teamwork challenges. People can’t read each other’s minds,
+            so if there are conflicting opinions or ideas, the only way to settle it is to discuss.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
